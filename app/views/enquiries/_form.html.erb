@@ -1,0 +1,8 @@
+<%= form_with model: @enquiry do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
