@@ -1,7 +1,36 @@
-<h1>Showing Enquiry</h1>
+<h1 class="jumbotron">Showing Enquiry</h1>
+<%= link_to "Back to list", enquiries_path %>
 <p>
   <label>Name:</label>
   <%= @enquiry.first_name %> <%= @enquiry.last_name %>
 </p>
 
-<%= link_to "Back to list", enquiries_path %> 
+<p>
+  <label>Client Used:</label>
+  <%= @enquiry.client_used_before? ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <label>Issue Status:</label>
+  <%= @enquiry.issue_status %> 
+</p>
+
+<p>
+  <label>Contact via Voicemail:</label>
+  <%= @enquiry.contact_via_voicemail? ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <label>Contact via Text:</label>
+  <%= @enquiry.contact_via_text? ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <label>Full Time:</label>
+  <%= @enquiry.full_time? ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <label>In work:</label>
+  <%= @enquiry.in_work? ? 'Yes' : 'No' %>
+</p>
