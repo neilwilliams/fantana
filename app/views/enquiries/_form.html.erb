@@ -1,8 +1,177 @@
-<%= form_with model: @enquiry do |f| %>
+<%= link_to "Back To List", enquiries_path %>
+<div>
+  <%= form_with model: @enquiry do |f| %>
   <div class="form-group">
+    
+    <div=>
+    <%= f.label :organisation_id, "Organisation" %>
+    <%= f.text_field :organisation_id, class: "form-control" %>
+  </div>
+    
+  <div class="form-group row">
+    <div class="col-sm-6"><%= f.label :client_used_before, "Client used service before?" %>
+    </div>
+    <div class="col-sm-14">
+      <div class="form-check">
+        <%= f.check_box :client_used_before, class: "form-check-input" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-row">  
+    <%= f.label :referred_by, "Referral" %>
+    <%= f.text_field :referred_by, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
     <%= f.label :first_name, "First Name" %>
     <%= f.text_field :first_name, class: "form-control" %>
   </div>
+    
+  <div class="form-row"> 
+    <%= f.label :second_name, "Last Name" %>
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :telephone, "Tel No" %>
+    <%= f.text_field :telephone, class:   "form-control" %>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-6"><%= f.label :client_used_before, "Contact via Voicemail?" %>
+    </div>
+    <div class="col-sm-14">
+      <div class="form-check">
+        <%= f.check_box :contact_via_voicemail, class: "form-check-input" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-6"><%= f.label :client_used_before, "Contact via Text?" %>
+    </div>
+    <div class="col-sm-14">
+      <div class="form-check">
+        <%= f.check_box :contact_via_text, class: "form-check-input" %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :email, "First Name" %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :date_of_birth, "Date of Birth" %>
+    <%= f.text_field :date_of_birth, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_1, "Address Line 1" %>
+    <%= f.text_field :address_1, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_2, "Address Line 2" %>
+    <%= f.text_field :address_2, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_3, "Address Line 3" %>
+    <%= f.text_field :address_3, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_4, "Address Line 4" %>
+    <%= f.text_field :address_4, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_5, "Address Line 5" %>
+    <%= f.text_field :address_5, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :address_6, "Address Line 6" %>
+    <%= f.text_field :address_6, class: "form-control" %>
+  </div>
+      
+  <div class="form-row">
+    <%= f.label :issue_status, "Issue Status" %>
+    <% issue_statuses = Enquiry.issue_statuses %>
+    <%= f.select(:issue_status, Enquiry.issue_statuses.keys) %>
+  </div> 
+  
+    
+  <div class="form-row"> 
+    <%= f.label :issue_sub_type_id, "Issue Sub Type" %>
+    <%= f.text_field :issue_sub_type_id, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :job_title, "Job Title" %>
+    <%= f.text_field :job_title, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :department, "Department" %>
+    <%= f.text_field :department, class: "form-control" %>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-6"><%= f.label :client_used_before, "Full time?" %>
+    </div>
+    <div class="col-sm-14">
+      <div class="form-check">
+        <%= f.check_box :full_time, class: "form-check-input" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-6"><%= f.label :client_used_before, "In work?" %>
+    </div>
+    <div class="col-sm-14">
+      <div class="form-check">
+        <%= f.check_box :in_work, class: "form-check-input" %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :recommended_from, "Recommended from?" %>
+    <%= f.text_field :recommended_from, class: "form-control" %>
+  </div>
+  
+  <div class="form-row">
+    <%= f.label :enquiry_type, "Enquiry Type" %>
+    <% enquiry_types = Enquiry.enquiry_types %>
+    <%= f.select(:enquiry_type, Enquiry.enquiry_types.keys) %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :availability, "Availability" %>
+    <%= f.text_field :availability, class: "form-control" %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :location, "Location" %>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+   
+  <div class="form-row">
+    <%= f.label :action_type, "Action Type" %>
+    <% action_types = Enquiry.action_types %>
+    <%= f.select(:action_type, Enquiry.action_types.keys) %>
+  </div>
+    
+  <div class="form-row"> 
+    <%= f.label :councellor_id, "Counsellor" %>
+    <%= f.text_field :councellor_id, class: "form-control" %>
+  </div>
+</div>
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

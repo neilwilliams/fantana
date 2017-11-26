@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108221415) do
+ActiveRecord::Schema.define(version: 20171118171522) do
 
   create_table "enquiries", force: :cascade do |t|
     t.integer "entered_by"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 20171108221415) do
     t.integer "councellor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "issue_status", default: 0
+    t.integer "enquiry_type", default: 0
+    t.integer "action_type", default: 0
     t.index ["action_id"], name: "index_enquiries_on_action_id"
     t.index ["client_id"], name: "index_enquiries_on_client_id"
     t.index ["councellor_id"], name: "index_enquiries_on_councellor_id"

@@ -34,6 +34,13 @@ class EnquiriesController < ApplicationController
   def show
     @enquiry = Enquiry.find(params[:id])
   end
+  
+  def destroy
+    @enquiry = Enquiry.find(params[:id])
+    @enquiry.destroy
+      flash[:notice] = "Enquiry was successfully destroyed"
+      redirect_to enquiries_path
+  end
 
   private
   def enquiry_params
