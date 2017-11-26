@@ -1,18 +1,23 @@
 class EnquiriesController < ApplicationController
   def index
     @enquiries = Enquiry.order("created_at desc")
+    #@clients = Client.all
   end
 
   def new
     @enquiry = Enquiry.new
+    @enquiry.build_client
   end
 
   def edit
     @enquiry = Enquiry.find(params[:id])
+    # tried but didnt work @clients = Enquiry.clients
   end
 
   def create
     @enquiry = Enquiry.new(enquiry_params)
+    #@client = Client.new(enquiry_params)
+    #@enquiry.client = @client
     if @enquiry.save
       flash[:notice] = "Enquiry Submitted Successfully"
       redirect_to enquiries_path
@@ -44,6 +49,6 @@ class EnquiriesController < ApplicationController
 
   private
   def enquiry_params
-    params.require(:enquiry).permit!
+    params.require(:enquiry).permit(client_attributes: [:first_name, :last_name])
   end
 end

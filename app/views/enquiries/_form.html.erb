@@ -23,9 +23,12 @@
     <%= f.text_field :referred_by, class: "form-control" %>
   </div>
     
+  <%# Attempting to use Client model control within form - not working %>
   <div class="form-row"> 
-    <%= f.label :first_name, "First Name" %>
-    <%= f.text_field :first_name, class: "form-control" %>
+    <%= f.fields_for :client do |ff| %>
+    <%= ff.label :first_name, "First Name" %>
+    <%= ff.text_field :first_name, class: "form-control" %>
+    <% end %>
   </div>
     
   <div class="form-row"> 
@@ -100,7 +103,6 @@
       
   <div class="form-row">
     <%= f.label :issue_status, "Issue Status" %>
-    <% issue_statuses = Enquiry.issue_statuses %>
     <%= f.select(:issue_status, Enquiry.issue_statuses.keys) %>
   </div> 
   
@@ -146,9 +148,10 @@
   </div>
   
   <div class="form-row">
-    <%= f.label :enquiry_type, "Enquiry Type" %>
-    <% enquiry_types = Enquiry.enquiry_types %>
-    <%= f.select(:enquiry_type, Enquiry.enquiry_types.keys) %>
+    <%= f.fields_for :enquiry_types do |ee| %>
+    <%= ee.label :enquiry_type, "Enquiry Type" %>
+    <%= ee.select(:enquiry_type, Enquiry.enquiry_types.keys) %>
+    <% end %>
   </div>
     
   <div class="form-row"> 
@@ -163,7 +166,6 @@
    
   <div class="form-row">
     <%= f.label :action_type, "Action Type" %>
-    <% action_types = Enquiry.action_types %>
     <%= f.select(:action_type, Enquiry.action_types.keys) %>
   </div>
     

@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118171522) do
+ActiveRecord::Schema.define(version: 20171125141810) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "councellors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+  end
 
   create_table "enquiries", force: :cascade do |t|
     t.integer "entered_by"
@@ -55,6 +68,24 @@ ActiveRecord::Schema.define(version: 20171118171522) do
     t.index ["issue_sub_type_id"], name: "index_enquiries_on_issue_sub_type_id"
     t.index ["issue_type_id"], name: "index_enquiries_on_issue_type_id"
     t.index ["organisation_id"], name: "index_enquiries_on_organisation_id"
+  end
+
+  create_table "enquiry_types", force: :cascade do |t|
+    t.string "enquiry_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "issue_sub_types", force: :cascade do |t|
+    t.string "sub_issue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "issue_types", force: :cascade do |t|
+    t.string "issue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
